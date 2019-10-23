@@ -5,7 +5,7 @@ import (
 
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
-	"sigs.k8s.io/kind/cmd/kind/version"
+	"github.com/swiftdiaries/ccp-clientlibrary-go/v3/cmd/ccpctl/version"
 )
 
 const defaultLevel = log.WarnLevel
