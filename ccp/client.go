@@ -17,11 +17,14 @@ package ccp
 
 import (
 	"crypto/tls"
+	"encoding/base64"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/http/cookiejar"
 	"reflect"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 //import "encoding/json"
@@ -30,6 +33,28 @@ type Client struct {
 	Username string
 	Password string
 	BaseURL  string
+}
+
+func base64EncryptPassword(password string) (string, error) {
+	passwordHash, err := bcrypt.GenerateFromPassword([]byte(password), 10)
+	if err != nil {
+		return "", err
+	}
+	encodedPassword := base64.StdEncoding.EncodeToString(passwordHash)
+	return encodedPassword, nil
+}
+
+func NewEncryptedClient(username, password, baseurl string) (*Client, error) {
+	encryptedPassword, err := base64EncryptPassword(password)
+	if err != nil {
+		return nil, fmt.Errorf("error creating new client, encryption of password failed: %v", err)
+	}
+
+	return &Client{
+		Username: username,
+		Password: encryptedPassword,
+		BaseURL:  baseurl,
+	}, nil
 }
 
 var jar, err = cookiejar.New(nil)
