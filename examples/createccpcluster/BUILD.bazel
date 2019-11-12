@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["main.go"],
+    importpath = "github.com/swiftdiaries/ccp-clientlibrary-go/v3/examples/createccpcluster",
+    visibility = ["//visibility:private"],
+    deps = ["//ccp:go_default_library"],
+)
+
+go_binary(
+    name = "createccpcluster",
+    embed = [":go_default_library"],
+    visibility = ["//visibility:public"],
+)

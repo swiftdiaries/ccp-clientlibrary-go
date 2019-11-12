@@ -1,0 +1,21 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "aciProfiles.go",
+        "client.go",
+        "clusters.go",
+        "ldap.go",
+        "providerClientConfigs.go",
+        "rbac.go",
+        "system.go",
+        "users.go",
+    ],
+    importpath = "github.com/swiftdiaries/ccp-clientlibrary-go/v3/ccp",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/golang.org/x/crypto/bcrypt:go_default_library",
+        "//vendor/gopkg.in/validator.v2:go_default_library",
+    ],
+)

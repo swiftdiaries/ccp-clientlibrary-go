@@ -23,8 +23,7 @@ func NewCommand() *cobra.Command {
 		Use:   "ccpctl",
 		Short: "ccpctl is a productivity tool for Cisco Container Platform",
 		Long: `
-		ccpctl is a productivity tool for Cisco Container Platform
-	`,
+ccpctl is a productivity tool for Cisco Container Platform`,
 		PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
 			return runE(flags, cmd, args)
 		},

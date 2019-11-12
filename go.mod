@@ -3,6 +3,7 @@ module github.com/swiftdiaries/ccp-clientlibrary-go/v3
 go 1.13
 
 require (
+	github.com/bazelbuild/bazel-gazelle v0.19.0 // indirect
 	github.com/sirupsen/logrus v1.4.2
 	github.com/spf13/cobra v0.0.5
 	golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550
