@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["create.go"],
+    importpath = "github.com/swiftdiaries/ccp-clientlibrary-go/v3/cmd/ccpctl/create",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/create:go_default_library",
+        "//vendor/github.com/sirupsen/logrus:go_default_library",
+        "//vendor/github.com/spf13/cobra:go_default_library",
+    ],
+)

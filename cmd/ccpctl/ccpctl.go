@@ -5,6 +5,8 @@ import (
 
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
+	"github.com/swiftdiaries/ccp-clientlibrary-go/v3/cmd/ccpctl/create"
+	"github.com/swiftdiaries/ccp-clientlibrary-go/v3/cmd/ccpctl/delete"
 	"github.com/swiftdiaries/ccp-clientlibrary-go/v3/cmd/ccpctl/version"
 )
 
@@ -31,6 +33,8 @@ ccpctl is a productivity tool for Cisco Container Platform`,
 		Version:      version.Version,
 	}
 	cmd.AddCommand(version.NewCommand())
+	cmd.AddCommand(create.NewCommand())
+	cmd.AddCommand(delete.NewCommand())
 	return cmd
 }
 

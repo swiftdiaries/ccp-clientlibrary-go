@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["delete.go"],
+    importpath = "github.com/swiftdiaries/ccp-clientlibrary-go/v3/pkg/delete",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//ccp:go_default_library",
+        "//vendor/github.com/sirupsen/logrus:go_default_library",
+    ],
+)

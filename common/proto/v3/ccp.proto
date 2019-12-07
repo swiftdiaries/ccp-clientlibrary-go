@@ -1,0 +1,23 @@
+syntax = "proto3";
+package ccp.v3;
+
+option go_package = "github.com/swiftdiaries/ccp-clientlibrary-go/gen/ccp_go_proto";
+
+import "google/api/annotations.proto";
+
+service CCP {
+    rpc CreateCluster(CreateClusterRequest) returns (ClusterMessage) {
+        option (google.api.http) = {
+            post: "/v3/clusters"
+            body: "*"
+        };
+    }
+}
+
+message CreateClusterRequest {
+    bytes ClusterProfile = 1;
+}
+
+message ClusterMessage {
+    string response = 1;
+}
